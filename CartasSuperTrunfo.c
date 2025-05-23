@@ -3,7 +3,9 @@
 int main()
 {
     // Programa em C que permita ao usuário inserir os dados de duas cartas do Super Trunfo
-    // Entrar e exibir dados de 2 cartas. Não utilizar estrutura de repetição ou decisão
+    // Entrar e exibir dados de 2 cartas. Não utilizar estrutura de repetição ou decisão (nível novato)
+    // Com cálculos de densidade populacional e PIB per capita (nível aventureiro)
+    // Com número maiores e comparação entre cartas (nível mestre)
 
     int carta;
     // Uma letra de 'A' a 'H' (representando um dos oito estados)
@@ -13,7 +15,7 @@ int main()
     // Nome da cidade
     char cidade1[15], cidade2[15];
     // Número de habitantes da cidade
-    int populacao1, populacao2;
+    unsigned long int populacao1, populacao2;
     // Área da cidade em quilômetros quadrados
     float area1, area2;
     // Produto Interno Bruto da cidade
@@ -22,8 +24,10 @@ int main()
     int numero_pontos_turisticos1, numero_pontos_turisticos2;
     // densidade populacional
     float densidade1, densidade2;
-    //pib per capita 
+    // pib per capita 
     float pib_per_capita1, pib_per_capita2;
+    // super poder
+    float super_poder1, super_poder2;
 
 
     // Entrada de dados para armazenamento nas variáveis:
@@ -41,7 +45,7 @@ int main()
     scanf("%14s", cidade1);
     // População
     printf("Digite o número de habitantes da cidade: ");
-    scanf("%d", &populacao1);
+    scanf("%ld", &populacao1);
     // Area
     printf("Digite a área (km2) da cidade: ");
     scanf("%f", &area1);
@@ -54,6 +58,7 @@ int main()
     //Densidade populacional
     densidade1 = populacao1 / area1;
     pib_per_capita1 = pib1 / populacao1;
+    super_poder1 = populacao1 + area1 + pib1 + numero_pontos_turisticos1 + pib_per_capita1 + (1/densidade1);
     printf("\n");
 
     // Entrada de dados para armazenamento nas variáveis:
@@ -71,7 +76,7 @@ int main()
     scanf("%14s", cidade2);
     // População
     printf("Digite o número de habitantes da cidade: ");
-    scanf("%d", &populacao2);
+    scanf("%ld", &populacao2);
     // Area
     printf("Digite a área (km2) da cidade: ");
     scanf("%f", &area2);
@@ -82,8 +87,9 @@ int main()
     printf("Digite o número de pontos turísticos: ");
     scanf("%d", &numero_pontos_turisticos2);
     //Densidade populacional
-    densidade1 = populacao2 / area2;
-    pib_per_capita1 = pib2 / populacao2;
+    densidade2 = populacao2 / area2;
+    pib_per_capita2 = pib2 / populacao2;
+    super_poder2 = populacao2 + area2 + pib2 + numero_pontos_turisticos2 + pib_per_capita2 + (1/densidade2);
     printf("\n");
 
     // Carta 1
@@ -91,26 +97,33 @@ int main()
     printf("Estado: %c\n", estado1);
     printf("Código: %s\n", codigo1);
     printf("Cidade: %s\n", cidade1);
-    printf("População: %d habitantes\n", populacao1);
+    printf("População: %ld habitantes\n", populacao1);
     printf("Área: %.2f km2\n", area1); 
     printf("PIB: %.2f reais\n", pib1);
     printf("Pontos Turísticos: %d\n", numero_pontos_turisticos1);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade1);
     printf("PIB per Capita: %.2f reais\n", pib_per_capita1);
-
+    printf("\n");
     
     // Carta 2
     printf("\nCarta 2:\n");
     printf("Estado: %c\n", estado2);
     printf("Código: %s\n", codigo2);
     printf("Cidade: %s\n", cidade2);
-    printf("População: %d habitantes\n", populacao2);
+    printf("População: %ld habitantes\n", populacao2);
     printf("Área: %.2f km2\n", area2);
     printf("PIB: %.2f reais\n", pib2);
     printf("Pontos Turísticos: %d\n", numero_pontos_turisticos2);
     printf("Densidade Populacional: %.2f hab/km²\n", densidade2);
     printf("PIB per Capita: %.2f reais\n", pib_per_capita2);
+    printf("\n");
 
+    // Comparação entre cartas
+    printf("Comparação de Cartas:\n");
+    printf("População: Carta 1 venceu(%d)\n", populacao1 > populacao2);
+    printf("Área: Carta 1 venceu(%d)\n", area1 > area2);
+    printf("PIB: Carta 1 venceu(%d)\n", pib1 > pib2);
+    printf("Super Poder: Carta 1 venceu(%d)\n", super_poder1 > super_poder2);
 
     printf("\n");
 
